@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{27E3B7BB-7210-4DB8-2CDE-8C5F9221D3B6}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Snake.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Food/Food.cs">
     <Files>
-      <File FileName="Assets/Scripts/Snake.cs" Line="76" Column="51" />
-      <File FileName="Assets/Scripts/UIManager.cs" Line="92" Column="10" />
-      <File FileName="Assets/Scripts/Food/Mouse.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Snake.cs" Line="55" Column="1" />
+      <File FileName="Assets/Scripts/UIManager.cs" />
+      <File FileName="Assets/Scripts/Food/Mouse.cs" />
+      <File FileName="Assets/Scripts/Food/Food.cs" Line="27" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,8 +12,9 @@
           <Node name="Snake" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Food" expanded="True" />
-                <Node name="Snake.cs" selected="True" />
+                <Node name="Food" expanded="True">
+                  <Node name="Food.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -22,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d3acbbaa-1576-4487-b7cc-7dbb7b4cb699" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9e20d0e3-828e-404f-af24-5b7ccf4cdf33" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

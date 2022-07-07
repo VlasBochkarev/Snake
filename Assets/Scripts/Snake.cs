@@ -34,22 +34,22 @@ public class Snake : MonoBehaviour
 
     private void Update()
     {
-            if (Input.GetKeyDown(KeyCode.A) && transform.rotation != Quaternion.Euler(0, 0, -90))
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 90);
-            }
-            if (Input.GetKeyDown(KeyCode.D) && transform.rotation != Quaternion.Euler(0, 0, 90))
-            {
-                transform.rotation = Quaternion.Euler(0, 0, -90);
-            }
-            if (Input.GetKeyDown(KeyCode.W) && transform.rotation != Quaternion.Euler(0, 0, 180))
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            if (Input.GetKeyDown(KeyCode.S) && transform.rotation != Quaternion.Euler(0, 0, 0))
-            {
-                transform.rotation = Quaternion.Euler(0, 0, -180);
-            }
+        if (Input.GetKeyDown(KeyCode.A) && transform.rotation != Quaternion.Euler(0, 0, -90))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        if (Input.GetKeyDown(KeyCode.D) && transform.rotation != Quaternion.Euler(0, 0, 90))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        if (Input.GetKeyDown(KeyCode.W) && transform.rotation != Quaternion.Euler(0, 0, 180))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.S) && transform.rotation != Quaternion.Euler(0, 0, 0))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -180);
+        }
 
         if (trigerForBuffs) TimerBuff();
 
