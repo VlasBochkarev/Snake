@@ -4,161 +4,172 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
-    public GameObject
-        buffEfectNitro,
-        buffEfectSlow,
-        buffEfectSuperGrow,
-        buffEfectGrow,
-        effectLose;
 
-    public static float
-        speed = 8f,
-        score = 0,
-        snakeTailLength = 0;
+	public EffectsManager EffectsManagerScript;
+	public Transform SnakeTailPrefab;
+	public UIManager UiScript;
 
-    private float timerForBuffs = 0;
-    private bool trigerForBuffs = false;
+	public static float Score = 0;
+	public static float SnakeTailLength = 0;
 
-    public UIManager uiScript;
+	private float _speed = 8f;
+	private float _timerForBuffs = 0;
+	private bool _trigerForBuffs = false;
+	private List<Transform> _tail;
 
-    private List<Transform> _tail;
-    public Transform snakeTailPrefab;
 
     private void Start()
-    {
-        _tail = new List<Transform>();
-        _tail.Add(transform);
+	{
+		_tail = new List<Transform>();
+		_tail.Add(transform);
+	}
 
+	private void Update()
+	{
+		SnakeController();
 
-    }
+		if (_trigerForBuffs)
+		{
+			TimerBuff();
+		}
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A) && transform.rotation != Quaternion.Euler(0, 0, -90))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        if (Input.GetKeyDown(KeyCode.D) && transform.rotation != Quaternion.Euler(0, 0, 90))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -90);
-        }
-        if (Input.GetKeyDown(KeyCode.W) && transform.rotation != Quaternion.Euler(0, 0, 180))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.S) && transform.rotation != Quaternion.Euler(0, 0, 0))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, -180);
-        }
+	}
 
-        if (trigerForBuffs) TimerBuff();
+	private void FixedUpdate()
+	{
+		if (UIManager.PauseIsActive == false)
+		{
+			for (int i = _tail.Count - 1; i > 0; i--)
+			{
+				_tail[i].position = _tail[i - 1].position;
+			}
 
-    }
+			transform.Translate(Vector2.up * GetSpeed() * Time.deltaTime);
+		}
+	}
 
-    private void FixedUpdate()
-    {
-        if (UIManager.pauseIsActive == false)
-        {
-            for (int i = _tail.Count - 1; i > 0; i--)
-            {
-                _tail[i].position = _tail[i - 1].position;
-            }
+	public float GetSpeed()
+	{
+		return _speed;
+	}
 
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
-        }
-    }
+	public void SetSpeed(float _speed)
+	{
+		
+		if (_speed < 5)
+		{
+			this._speed = 5;
+			return;
+		}
+		if (_speed > 12)
+		{
+			this._speed = 12;
+			return;
+		}
+		this._speed = _speed;
+	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Food")
-        {
-            Grow();
-            SpawnAndDestroyPrefabs(buffEfectGrow);
-        }
-        else if (collision.tag == "Nitro")
-        {
-            NitroIsActive();
-            SpawnAndDestroyPrefabs(buffEfectNitro);
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag("Food"))
+		{
+			Grow();
+            EffectsManagerScript.EffectGrow();
+		}
+		else if (collision.CompareTag("Nitro"))
+		{
+			NitroIsActive();
+			EffectsManagerScript.EffectNitro();
 
-        }
-        else if (collision.tag == "Slow")
-        {
-            SlowMotionIsActive();
-            SpawnAndDestroyPrefabs(buffEfectSlow);
-        }
-        else if (collision.tag == "Mouse")
-        {
-            SuperGrow();
-            SpawnAndDestroyPrefabs(buffEfectSuperGrow);
-        }
-        else if (collision.tag == "Tail")
-        {
-            UIManager.pauseIsActive = true;
-            StartCoroutine(waitForLoseEffect());
-            SpawnAndDestroyPrefabs(effectLose);
-        }
-        else if (collision.tag == "Obstacle")
-        {
-            transform.position = -transform.position;
-        }
-    }
+		}
+		else if (collision.CompareTag("Slow"))
+		{
+			SlowMotionIsActive();
+			EffectsManagerScript.EffectSlow();
+		}
+		else if (collision.CompareTag("Mouse"))
+		{
+			SuperGrow();
+			EffectsManagerScript.EffectSuperGrow();
+		}
+		else if (collision.CompareTag("Obstacle"))
+		{
+			UIManager.PauseIsActive = true;
+			StartCoroutine(waitForLoseEffect());
+			EffectsManagerScript.EffectGameOver();
+			
+		}
+	}
 
-    private void Grow()
-    {
-        Transform tail = Instantiate(snakeTailPrefab);
-        tail.position = _tail[_tail.Count - 1].position;
-        _tail.Add(tail);
-        snakeTailLength++;
-        score += 2;
-    }
+	private void SnakeController()
+	{
+		if (Input.GetKeyDown(KeyCode.A) && transform.rotation != Quaternion.Euler(0, 0, -90))
+		{
+			transform.rotation = Quaternion.Euler(0, 0, 90);
+		}
+		if (Input.GetKeyDown(KeyCode.D) && transform.rotation != Quaternion.Euler(0, 0, 90))
+		{
+			transform.rotation = Quaternion.Euler(0, 0, -90);
+		}
+		if (Input.GetKeyDown(KeyCode.W) && transform.rotation != Quaternion.Euler(0, 0, 180))
+		{
+			transform.rotation = Quaternion.Euler(0, 0, 0);
+		}
+		if (Input.GetKeyDown(KeyCode.S) && transform.rotation != Quaternion.Euler(0, 0, 0))
+		{
+			transform.rotation = Quaternion.Euler(0, 0, -180);
+		}
+	}
 
-    private void SuperGrow()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            Grow();
-        }
-    }
+	private void Grow()
+	{
+		Transform tail = Instantiate(SnakeTailPrefab);
+		tail.position = _tail[_tail.Count - 1].position;
+		_tail.Add(tail);
+		SnakeTailLength++;
+		Score += 2;
+	}
 
-    private void NitroIsActive()
-    {
-        speed = 12;
-        TimerBuff();
-        score += 2;
-    }
+	private void SuperGrow()
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			Grow();
+		}
+	}
 
-    private void SlowMotionIsActive()
-    {
-        speed = 5;
-        TimerBuff();
-        score += 2;
-    }
-    private void TimerBuff()
-    {
-        trigerForBuffs = true;
-        if (timerForBuffs < 5) timerForBuffs += Time.deltaTime;
-        else if (timerForBuffs >= 0)
-        {
-            timerForBuffs = 0;
-            speed = 8;
-            trigerForBuffs = false;
-        }
-    }
+	private void NitroIsActive()
+	{
+		SetSpeed(12);
+		TimerBuff();
+		Score += 2;
+	}
 
-    IEnumerator waitForLoseEffect()
-    {
-        yield return new WaitForSeconds(3.0f);
-        UIManager.pauseIsActive = true;
-        uiScript.PauseGame();
-        uiScript.playButton.SetActive(false);
+	private void SlowMotionIsActive()
+	{
+		SetSpeed(5);
+		TimerBuff();
+		Score += 2;
+	}
+	private void TimerBuff()
+	{
+		_trigerForBuffs = true;
+		if (_timerForBuffs < 5) _timerForBuffs += Time.deltaTime;
+		else if (_timerForBuffs >= 0)
+		{
+			_timerForBuffs = 0;
+			SetSpeed(8);
+			_trigerForBuffs = false;
+		}
+	}
 
-    }
+	IEnumerator waitForLoseEffect()
+	{
+		yield return new WaitForSeconds(3.0f);
+		UIManager.PauseIsActive = true;
+		UiScript.PauseGame();
+		UiScript.PlayButton.SetActive(false);
 
-    private void SpawnAndDestroyPrefabs(GameObject buffEfect)
-    {
-        GameObject spawnPrefab = Instantiate(buffEfect, transform.position, transform.rotation);
-        spawnPrefab.GetComponent<AudioSource>().Play();
-        Destroy(spawnPrefab, 1f);
-    }
+	}
 
 }

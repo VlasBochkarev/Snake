@@ -7,10 +7,10 @@ public class Food : MonoBehaviour
 
     private void Start()
     {
-        RandomPositionsAplle();
+        RandomPositionsFood();
     }
 
-    private void RandomPositionsAplle()
+    public void RandomPositionsFood()
     {
         Bounds bounds = area.bounds;
         float aplleX = Random.Range(bounds.min.x, bounds.max.x);
@@ -23,7 +23,7 @@ public class Food : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            RandomPositionsAplle();
+            RandomPositionsFood();
         }
     }
 }

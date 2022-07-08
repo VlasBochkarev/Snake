@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 2064404165}
+  NitroFood: {fileID: 189155680}
 --- !u!61 &189155681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2707,6 +2708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 2064404165}
+  MouseFood: {fileID: 1107969698}
 --- !u!61 &1107969699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2877,13 +2879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a32fdfd62be447e09233f679305cb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffEfectNitro: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
-  buffEfectSlow: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
-  buffEfectSuperGrow: {fileID: 180128, guid: 6586ff0f14125534cae2f5d8f04b7871, type: 3}
-  buffEfectGrow: {fileID: 100748, guid: cd4d7020429cde74db076ffa72495419, type: 3}
-  effectLose: {fileID: 175238, guid: 26d069e6f78e6f8478e4dc0152bd6939, type: 3}
-  uiScript: {fileID: 1954902021}
-  snakeTailPrefab: {fileID: 5617519558524271679, guid: ea777709307d6441782e39a908ee0b11, type: 3}
+  EffectsManagerScript: {fileID: 2064404167}
+  SnakeTailPrefab: {fileID: 5617519558524271679, guid: ea777709307d6441782e39a908ee0b11, type: 3}
+  UiScript: {fileID: 1954902021}
 --- !u!212 &1217289555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3489,20 +3487,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1078346299454466f8b3279b8e5e58aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseButton: {fileID: 699502829}
-  playButton: {fileID: 728000055}
-  pauseMenu: {fileID: 1289429174}
-  btnPause: {fileID: 699502831}
-  btnPlay: {fileID: 728000057}
-  btnRestart: {fileID: 235697432}
-  btnAudioSource: {fileID: 519420029}
-  textTime: {fileID: 1682582197}
-  textSnakeLength: {fileID: 306570221}
-  textScore: {fileID: 709044696}
-  textBestScore: {fileID: 515396371}
-  currentScore: {fileID: 386353268}
-  maxLengthSnake: {fileID: 585055752}
-  currentTime: {fileID: 374469278}
+  PauseButton: {fileID: 699502829}
+  PlayButton: {fileID: 728000055}
+  PauseMenu: {fileID: 1289429174}
+  BtnPause: {fileID: 699502831}
+  BtnPlay: {fileID: 728000057}
+  BtnRestart: {fileID: 235697432}
+  TextTime: {fileID: 1682582197}
+  TextSnakeLength: {fileID: 306570221}
+  TextScore: {fileID: 709044696}
+  TextBestScore: {fileID: 515396371}
+  CurrentScore: {fileID: 386353268}
+  MaxLengthSnake: {fileID: 585055752}
+  CurrentTime: {fileID: 374469278}
+  BtnAudioSource: {fileID: 519420029}
 --- !u!1 &2044465742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 2064404165}
+  SlowFood: {fileID: 2044465746}
 --- !u!1 &2064404164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,6 +3635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064404166}
   - component: {fileID: 2064404165}
+  - component: {fileID: 2064404167}
   m_Layer: 0
   m_Name: Area
   m_TagString: Untagged
@@ -3683,3 +3683,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064404167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064404164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33075707a57f34bbfbccdb1eb3706d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuffEfectNitro: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+  BuffEfectSlow: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
+  BuffEfectSuperGrow: {fileID: 180128, guid: 6586ff0f14125534cae2f5d8f04b7871, type: 3}
+  BuffEfectGrow: {fileID: 100748, guid: cd4d7020429cde74db076ffa72495419, type: 3}
+  EffectLose: {fileID: 175238, guid: 26d069e6f78e6f8478e4dc0152bd6939, type: 3}
+  Player: {fileID: 1217289550}
