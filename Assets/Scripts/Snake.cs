@@ -44,14 +44,14 @@ public class Snake : MonoBehaviour
 				_tail[i].position = _tail[i - 1].position;
 			}
 
-			transform.Translate(Vector2.up * GetSpeed() * Time.deltaTime);
+			transform.Translate(Vector2.up * _speed * Time.fixedDeltaTime);
 		}
 	}
 
-	public float GetSpeed()
-	{
-		return _speed;
-	}
+	//public float GetSpeed()
+	//{
+	//	return _speed;
+	//}
 
 	public void SetSpeed(float _speed)
 	{
@@ -71,28 +71,28 @@ public class Snake : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Food"))
+		if (collision.CompareTag(Constants.Effects.FOOD_TAG))
 		{
 			Grow();
             EffectsManagerScript.EffectGrow();
 		}
-		else if (collision.CompareTag("Nitro"))
+		else if (collision.CompareTag(Constants.Effects.NITRO_TAG))
 		{
 			NitroIsActive();
 			EffectsManagerScript.EffectNitro();
 
 		}
-		else if (collision.CompareTag("Slow"))
+		else if (collision.CompareTag(Constants.Effects.SLOW_MOTION_TAG))
 		{
 			SlowMotionIsActive();
 			EffectsManagerScript.EffectSlow();
 		}
-		else if (collision.CompareTag("Mouse"))
+		else if (collision.CompareTag(Constants.Effects.MOUSE_TAG))
 		{
 			SuperGrow();
 			EffectsManagerScript.EffectSuperGrow();
 		}
-		else if (collision.CompareTag("Obstacle"))
+		else if (collision.CompareTag(Constants.Obstacles.BASE_OBSTACLE_TAG))
 		{
 			UIManager.PauseIsActive = true;
 			StartCoroutine(waitForLoseEffect());

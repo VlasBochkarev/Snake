@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-
-    public BoxCollider2D area;
+    [SerializeField]
+    private BoxCollider2D _area;
 
     private void Start()
     {
@@ -12,7 +12,7 @@ public class Food : MonoBehaviour
 
     public void RandomPositionsFood()
     {
-        Bounds bounds = area.bounds;
+        Bounds bounds = _area.bounds;
         float aplleX = Random.Range(bounds.min.x, bounds.max.x);
         float aplleY = Random.Range(bounds.min.y, bounds.max.y);
 
@@ -21,7 +21,7 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.CompareTag(Constants.Player.PLAYER_TAG))
         {
             RandomPositionsFood();
         }

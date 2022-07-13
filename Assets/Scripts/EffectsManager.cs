@@ -40,7 +40,7 @@ public class EffectsManager : MonoBehaviour
 	}
 
 
-	public void SpawnAndDestroyPrefabs(GameObject buffEfect)
+	private void SpawnAndDestroyPrefabs(GameObject buffEfect)
 	{
 		GameObject spawnPrefab = Instantiate(buffEfect, Player.transform.position, Player.transform.rotation);
 		spawnPrefab.GetComponent<AudioSource>().Play();

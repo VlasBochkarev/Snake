@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349db6330fc9d4a21bb728d82bc0f1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 2064404165}
+  _area: {fileID: 2064404165}
   NitroFood: {fileID: 189155680}
 --- !u!61 &189155681
 BoxCollider2D:
@@ -712,8 +712,8 @@ RectTransform:
   m_Father: {fileID: 125054022}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.074, y: 0.92788893}
-  m_AnchorMax: {x: 0.28250012, y: 0.97874075}
+  m_AnchorMin: {x: 0.074, y: 0.92629635}
+  m_AnchorMax: {x: 0.36400002, y: 0.97985363}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -764,8 +764,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1673,10 +1673,10 @@ RectTransform:
   m_Father: {fileID: 125054022}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.900024, y: -50}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0.008520834, y: 0.91700006}
+  m_AnchorMax: {x: 0.05047917, y: 0.99074095}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699502831
 MonoBehaviour:
@@ -1888,10 +1888,10 @@ RectTransform:
   m_Father: {fileID: 125054022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchorMin: {x: 0.39600003, y: 0.93000007}
+  m_AnchorMax: {x: 0.60400003, y: 0.9760001}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709044696
 MonoBehaviour:
@@ -1940,8 +1940,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd13b58b738864607b2aa2c26a85841b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 2064404165}
+  _area: {fileID: 2064404165}
   MouseFood: {fileID: 1107969698}
 --- !u!61 &1107969699
 BoxCollider2D:
@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f1a9feb39694c7f8d97cb6f6576c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 2064404165}
+  _area: {fileID: 2064404165}
 --- !u!1 &1682582195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3274,10 +3274,10 @@ RectTransform:
   m_Father: {fileID: 125054022}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200, y: -50}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchorMin: {x: 0.7917501, y: 0.93000007}
+  m_AnchorMax: {x: 1, y: 0.9760001}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682582197
 MonoBehaviour:
@@ -3326,8 +3326,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3623,7 +3623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd631bf6a36549629545bd15adf9ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 2064404165}
+  _area: {fileID: 2064404165}
   SlowFood: {fileID: 2044465746}
 --- !u!1 &2064404164
 GameObject:
