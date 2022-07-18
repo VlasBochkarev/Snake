@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{27E3B7BB-7210-4DB8-2CDE-8C5F9221D3B6}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EffectsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Snake.cs">
     <Files>
-      <File FileName="Assets/Scripts/Snake.cs" Line="95" Column="70" />
+      <File FileName="Assets/Scripts/Snake.cs" Line="35" Column="1" />
       <File FileName="Assets/Scripts/UIManager.cs" />
-      <File FileName="Assets/Scripts/Food/Mouse.cs" Line="21" Column="63" />
-      <File FileName="Assets/Scripts/Food/Food.cs" Line="28" Column="6" />
-      <File FileName="Assets/Scripts/Food/Nitro.cs" Line="22" Column="63" />
-      <File FileName="Assets/Scripts/Food/SlowMotion.cs" Line="22" Column="57" />
-      <File FileName="Assets/Scripts/NewClass.cs" Line="9" Column="6" />
-      <File FileName="Assets/Scripts/EffectsManager.cs" Line="43" Column="9" />
+      <File FileName="Assets/Scripts/Food/Mouse.cs" />
+      <File FileName="Assets/Scripts/Food/Food.cs" />
+      <File FileName="Assets/Scripts/Food/Nitro.cs" />
+      <File FileName="Assets/Scripts/Food/SlowMotion.cs" />
+      <File FileName="Assets/Scripts/EffectsManager.cs" Line="28" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,22 +16,17 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Food" expanded="True" />
-                <Node name="EffectsManager.cs" selected="True" />
+                <Node name="Snake.cs" selected="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9e20d0e3-828e-404f-af24-5b7ccf4cdf33" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="315e1879-af06-48a5-89c2-73e2ea62d916" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,14 +11,19 @@ public class Snake : MonoBehaviour
 
 	public static float Score = 0;
 	public static float SnakeTailLength = 0;
-
-	private float _speed = 8f;
+	
 	private float _timerForBuffs = 0;
+	private float _speed = 0.25f;
+	private bool _isNitro = false;
+	private bool _isSlow = false;
 	private bool _trigerForBuffs = false;
+	private Vector3 OffSetPosition;
 	private List<Transform> _tail;
+	
 
 
-    private void Start()
+
+	private void Start()
 	{
 		_tail = new List<Transform>();
 		_tail.Add(transform);
@@ -27,54 +32,67 @@ public class Snake : MonoBehaviour
 	private void Update()
 	{
 		SnakeController();
-
+		Move();
 		if (_trigerForBuffs)
 		{
 			TimerBuff();
 		}
-
 	}
 
-	private void FixedUpdate()
+
+	private void Move()
 	{
 		if (UIManager.PauseIsActive == false)
 		{
-			for (int i = _tail.Count - 1; i > 0; i--)
+			_speed -= Time.deltaTime;
+			if (_speed < 0)
 			{
-				_tail[i].position = _tail[i - 1].position;
+				OffSetPosition = transform.position;
+				transform.Translate(Vector2.up * 1.1f);
+
+				for (int i = _tail.Count - 1; i > 0; i--)
+				{
+					_tail[i].position = _tail[i - 1].position;
+				}
+				if (_tail.Count > 2)
+				{
+					for (int j = 3; j < _tail.Count; j++)
+					{
+						_tail[j].GetComponent<BoxCollider2D>().isTrigger = true;
+					}
+				}
+				if (_isNitro)
+				{
+					_speed = 0.1f;
+				}
+				else if (_isSlow)
+				{
+					_speed = 0.5f;
+				}
+				else
+				{
+					_speed = 0.25f;
+				}
+
 			}
-
-			transform.Translate(Vector2.up * _speed * Time.fixedDeltaTime);
 		}
-	}
-
-	//public float GetSpeed()
-	//{
-	//	return _speed;
-	//}
-
-	public void SetSpeed(float _speed)
-	{
-		
-		if (_speed < 5)
-		{
-			this._speed = 5;
-			return;
-		}
-		if (_speed > 12)
-		{
-			this._speed = 12;
-			return;
-		}
-		this._speed = _speed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag(Constants.Effects.FOOD_TAG))
 		{
-			Grow();
-            EffectsManagerScript.EffectGrow();
+			if (_tail.Count == 1)
+			{
+				Grow();
+				Grow();
+				EffectsManagerScript.EffectGrow();
+			}
+			else
+			{
+				Grow();
+				EffectsManagerScript.EffectGrow();
+			}
 		}
 		else if (collision.CompareTag(Constants.Effects.NITRO_TAG))
 		{
@@ -97,7 +115,7 @@ public class Snake : MonoBehaviour
 			UIManager.PauseIsActive = true;
 			StartCoroutine(waitForLoseEffect());
 			EffectsManagerScript.EffectGameOver();
-			
+
 		}
 	}
 
@@ -121,6 +139,8 @@ public class Snake : MonoBehaviour
 		}
 	}
 
+
+
 	private void Grow()
 	{
 		Transform tail = Instantiate(SnakeTailPrefab);
@@ -140,14 +160,14 @@ public class Snake : MonoBehaviour
 
 	private void NitroIsActive()
 	{
-		SetSpeed(12);
+		_isNitro = true;
 		TimerBuff();
 		Score += 2;
 	}
 
 	private void SlowMotionIsActive()
 	{
-		SetSpeed(5);
+		_isSlow = true;
 		TimerBuff();
 		Score += 2;
 	}
@@ -158,7 +178,8 @@ public class Snake : MonoBehaviour
 		else if (_timerForBuffs >= 0)
 		{
 			_timerForBuffs = 0;
-			SetSpeed(8);
+			_isSlow = false;
+			_isNitro = false;
 			_trigerForBuffs = false;
 		}
 	}

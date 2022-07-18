@@ -2851,7 +2851,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2882,6 +2882,9 @@ MonoBehaviour:
   EffectsManagerScript: {fileID: 2064404167}
   SnakeTailPrefab: {fileID: 5617519558524271679, guid: ea777709307d6441782e39a908ee0b11, type: 3}
   UiScript: {fileID: 1954902021}
+  _timerForBuffs: 0
+  OffSetPosition: {x: 0, y: -1.1, z: 0}
+  _tail: []
 --- !u!212 &1217289555
 SpriteRenderer:
   m_ObjectHideFlags: 0

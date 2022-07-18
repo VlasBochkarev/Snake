@@ -57,13 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Food/Mouse.cs" />
+    <Compile Include="Assets/Scripts/Constants.cs" />
     <Compile Include="Assets/Scripts/Snake.cs" />
     <Compile Include="Assets/Scripts/UIManager.cs" />
     <Compile Include="Assets/Scripts/Food/Nitro.cs" />
     <Compile Include="Assets/Scripts/Food/SlowMotion.cs" />
     <Compile Include="Assets/Scripts/EffectsManager.cs" />
     <Compile Include="Assets/Scripts/Food/Food.cs" />
-    <Compile Include="Assets/Scripts/Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
