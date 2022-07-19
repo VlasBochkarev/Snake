@@ -11,15 +11,15 @@ public class Snake : MonoBehaviour
 
 	public static float Score = 0;
 	public static float SnakeTailLength = 0;
-	
+
 	private float _timerForBuffs = 0;
 	private float _speed = 0.25f;
 	private bool _isNitro = false;
 	private bool _isSlow = false;
 	private bool _trigerForBuffs = false;
-	private Vector3 OffSetPosition;
 	private List<Transform> _tail;
-	
+
+
 
 
 
@@ -47,7 +47,6 @@ public class Snake : MonoBehaviour
 			_speed -= Time.deltaTime;
 			if (_speed < 0)
 			{
-				OffSetPosition = transform.position;
 				transform.Translate(Vector2.up * 1.1f);
 
 				for (int i = _tail.Count - 1; i > 0; i--)

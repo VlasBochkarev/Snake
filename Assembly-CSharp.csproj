@@ -64,6 +64,7 @@
     <Compile Include="Assets/Scripts/Food/SlowMotion.cs" />
     <Compile Include="Assets/Scripts/EffectsManager.cs" />
     <Compile Include="Assets/Scripts/Food/Food.cs" />
+    <Compile Include="Assets/Scripts/ScreenManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
