@@ -3,17 +3,10 @@ using UnityEngine;
 
 public class Mouse : Food
 {
-    public Food MouseFood;
-    
-    IEnumerator respawnMouse()
-    {
-        yield return new WaitForSeconds(15.0f);
-        MouseFood.RandomPositionsFood();
-    }
-
+ 
     private void Start()
     {
-        StartCoroutine(respawnMouse());
+        StartCoroutine(Respawn(15.0f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,7 +14,7 @@ public class Mouse : Food
         if (collision.CompareTag(Constants.Player.PLAYER_TAG))
         {
             transform.position = new Vector3(100f, 100f, 0.0f);
-            StartCoroutine(respawnMouse());
+            StartCoroutine(Respawn(15.0f));
         }
     }
 }

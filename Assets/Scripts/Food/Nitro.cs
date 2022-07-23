@@ -3,18 +3,9 @@ using System.Collections;
 
 public class Nitro : Food
 {
-
-    public Food NitroFood;
-
-    IEnumerator respawnNitro()
-    {
-        yield return new WaitForSeconds(7.0f);
-        NitroFood.RandomPositionsFood();
-    }
-
     private void Start()
     {
-        StartCoroutine(respawnNitro());
+        StartCoroutine(Respawn(7.0f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +13,7 @@ public class Nitro : Food
         if (collision.CompareTag(Constants.Player.PLAYER_TAG))
         {
             transform.position = new Vector3(100f, 100f, 0.0f);
-            StartCoroutine(respawnNitro());
+            StartCoroutine(Respawn(7.0f));
         }
     }
 

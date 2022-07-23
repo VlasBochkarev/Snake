@@ -1,9 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public class Food : MonoBehaviour
 {
     [SerializeField]
     private BoxCollider2D _area;
+
+    public IEnumerator Respawn(float Time)
+    {
+        yield return new WaitForSeconds(Time);
+        RandomPositionsFood();
+    }
 
     private void Start()
     {
