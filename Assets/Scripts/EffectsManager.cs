@@ -11,7 +11,6 @@ public class EffectsManager : MonoBehaviour
 	public GameObject Player;
 
 
-
 	public void EffectNitro()
 	{
 		SpawnAndDestroyPrefabs(BuffEfectNitro);

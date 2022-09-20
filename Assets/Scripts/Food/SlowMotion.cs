@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class SlowMotion : Food
@@ -7,7 +6,6 @@ public class SlowMotion : Food
 	{
 		StartCoroutine(Respawn(10.0f));
 	}
-
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{

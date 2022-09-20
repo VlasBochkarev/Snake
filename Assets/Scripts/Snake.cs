@@ -19,10 +19,6 @@ public class Snake : MonoBehaviour
 	private bool _trigerForBuffs = false;
 	private List<Transform> _tail;
 
-
-
-
-
 	private void Start()
 	{
 		_tail = new List<Transform>();
@@ -72,7 +68,6 @@ public class Snake : MonoBehaviour
 				{
 					_speed = 0.25f;
 				}
-
 			}
 		}
 	}
@@ -137,8 +132,6 @@ public class Snake : MonoBehaviour
 			transform.rotation = Quaternion.Euler(0, 0, -180);
 		}
 	}
-
-
 
 	private void Grow()
 	{
